@@ -1,0 +1,35 @@
+General
+=======
+
+Branch maintainer:
+Urs Fässler
+
+
+Dependencies
+============
+
+This layer depends on:
+
+URI: git://git.openembedded.org/meta-openembedded/meta-oe
+branch: krogoth
+revision: HEAD
+
+URI: git://git.openembedded.org/meta-openembedded/meta-systemd
+branch: krogoth
+revision: HEAD
+
+URI: git://git.yoctoproject.org/meta-ti
+branch: krogoth
+revision: HEAD
+
+SD-Image creation
+=================
+
+build dependencies:
+
+    bitbake parted-native mtools-native dosfstools-native
+
+Create the SD-image with:
+
+    wic create sdimage-bootpart -e farbsort-image-dev
+
