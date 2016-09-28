@@ -15,6 +15,8 @@ SRC_URI += " \
 "
 
 kernel_do_compile_prepend() {
+	# remove .config from source tree
+	rm -f ${S}/.config*
 	# install farbsort_defconfig into build directory
 	mkdir -p arch/arm/configs/
 	cp ${WORKDIR}/farbsort_defconfig arch/arm/configs/
