@@ -27,6 +27,7 @@ RDEPENDS_${PN} = "\
   openssh-sftp-server \
   perf \
   procps \
+  farbsort-gui \
   screen \
   strace \
   sysstat \
