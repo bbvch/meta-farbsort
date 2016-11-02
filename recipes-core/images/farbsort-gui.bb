@@ -37,8 +37,11 @@ SRC_URI = "git://github.com/goerks/farbsort-gui.git;protocol=git;rev=5eaacbf1988
 
 inherit qmake5
 
+FILES_${PN} += "${bindir}/farbsort-gui"
+
 do_install() {
-	export INSTALL_ROOT=${D}
-	make install
+  install -d ${D}${bindir}
+  install -m 0755 ${WORKDIR}/build/farbsort-gui ${D}${bindir}
 }
+
 
