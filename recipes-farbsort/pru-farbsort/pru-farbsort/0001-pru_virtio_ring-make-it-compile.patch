@@ -1,0 +1,28 @@
+From 610ba2f327bbbc0c778349199cc0cda6079d235c Mon Sep 17 00:00:00 2001
+From: Andreas Meier <andreas.meier@bbv.ch>
+Date: Mon, 14 Nov 2016 10:20:26 +0100
+Subject: [PATCH] pru_virtio_ring: make it compile
+
+---
+ include/pru_virtio_ring.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/pru_virtio_ring.h b/include/pru_virtio_ring.h
+index 6cbb32f..219f82c 100755
+--- a/include/pru_virtio_ring.h
++++ b/include/pru_virtio_ring.h
+@@ -131,9 +131,9 @@ static inline void vring_init(struct vring *vr, uint32_t num, void *p,
+                              uint64_t align)
+ {
+        vr->num = num;
+-       vr->desc = p;
+-       vr->avail = (void *)((char *)p + num*sizeof(struct vring_desc));
+-       vr->used = (void *)(uintptr_t)(((uint64_t)&vr->avail->ring[num]
++       vr->desc = (vring_desc *)p;
++       vr->avail = (vring_avail *)((char *)p + num*sizeof(struct vring_desc));
++       vr->used = (vring_used *)(uintptr_t)(((uint64_t)&vr->avail->ring[num]
+                + sizeof(uint16_t) + align-1) & ~(align - 1));
+ }
+
+--
+
