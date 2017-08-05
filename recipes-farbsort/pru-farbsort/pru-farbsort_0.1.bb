@@ -1,7 +1,7 @@
 SUMMARY = "The pru firmware for the farbsort showcase"
 SECTION = "base"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/COPYRIGHTS;md5=d41d8cd98f00b204e9800998ecf8427e"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYRIGHTS;md5=d41d8cd98f00b204e9800998ecf8427e"
 
 SRCREV = "${AUTOREV}"
 SRC_URI = " \
@@ -9,26 +9,18 @@ SRC_URI = " \
 	file://0001-pru_virtio_ring-make-it-compile.patch \
 "
 
+SRC_URI[md5sum] = "0688ddb5c56f6467631ed9d0f59028b9"
+SRC_URI[sha256sum] = "38b4e2fb7c970647bb612d3e0f69bf4f8808b883d32e15e05008c2883657c0bb"
 
 do_patch() {
 }
 
-do_compile () {
-#        ${CC} ${WORKDIR}/skeleton_test.c -o ${WORKDIR}/skeleton-test
+do_compile() {
+	make -f ${WORKDIR}/git/Makefile.pru
 }
 
-do_install () {
-#        install -d ${D}${sysconfdir}/init.d
-#        cat ${WORKDIR}/skeleton | \
-#          sed -e 's,/etc,${sysconfdir},g' \
-#              -e 's,/usr/sbin,${sbindir},g' \
-#              -e 's,/var,${localstatedir},g' \
-#              -e 's,/usr/bin,${bindir},g' \
-#              -e 's,/usr,${prefix},g' > ${D}${sysconfdir}/init.d/skeleton
-#        chmod a+x ${D}${sysconfdir}/init.d/skeleton
-#
-#        install -d ${D}${sbindir}
-#        install -m 0755 ${WORKDIR}/skeleton-test ${D}${sbindir}/
+do_install() {
+
 }
 
 DEPENDS = "ti-cgt-pru-native"
