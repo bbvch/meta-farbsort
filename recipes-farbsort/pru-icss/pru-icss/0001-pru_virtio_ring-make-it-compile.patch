@@ -1,0 +1,33 @@
+From 1e81f7c96bb0efe94610ff2a9dc0fdf8b80879f1 Mon Sep 17 00:00:00 2001
+From: Juergen Messerer <juergen.messerer@sunrise.ch>
+Date: Mon, 7 Aug 2017 18:53:36 +0200
+Subject: [PATCH] pru_virtio_ring: make it compile
+
+---
+ include/pru_virtio_ring.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/include/pru_virtio_ring.h b/include/pru_virtio_ring.h
+index a3cefd2..38ea20b 100644
+--- a/include/pru_virtio_ring.h
++++ b/include/pru_virtio_ring.h
+@@ -132,11 +132,11 @@ struct vring {
+ static inline void vring_init(struct vring *vr, uint32_t num, void *p,
+                               uint64_t align)
+ {
+-	vr->num = num;
+-	vr->desc = p;
+-	vr->avail = (void *)((char *)p + num*sizeof(struct vring_desc));
+-	vr->used = (void *)(uintptr_t)(((uint64_t)&vr->avail->ring[num]
+-	                                + sizeof(uint16_t) + align-1) & ~(align - 1));
++	vr->num   = num;
++        vr->desc  = (vring_desc *)p;
++        vr->avail = (vring_avail *)((char *)p + num*sizeof(struct vring_desc));
++        vr->used  = (vring_used *)(uintptr_t)(((uint64_t)&vr->avail->ring[num]
++                			+ sizeof(uint16_t) + align-1) & ~(align - 1));
+ }
+ 
+ static inline unsigned vring_size(uint16_t num, uint64_t align)
+-- 
+1.9.1
+
