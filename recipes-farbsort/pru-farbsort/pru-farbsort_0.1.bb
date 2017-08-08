@@ -25,8 +25,9 @@ DEPENDS = "ti-cgt-pru-native pru-icss"
 
 S = "${WORKDIR}/git"
 
-export PRU_CGT = "${TI_CGT_PRU_INSTALL_DIR}"
-export PRU_LIB = "${TOPDIR}/tmp/work/beaglebone-poky-linux-gnueabi/pru-icss/${PV}-${PR}/git}"
+export PRU_CGT           = "${TI_CGT_PRU_INSTALL_DIR}"
+export PRU_ICSS_INC_PATH = "${STAGING_INCDIR_NATIVE}/pru-icss"
+export PRU_ICSS_LIB_PATH = "${STAGING_LIBDIR_NATIVE}/pru-icss"
 
 do_patch() {
 }
