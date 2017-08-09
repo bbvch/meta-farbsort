@@ -3,13 +3,13 @@ include recipes-core/images/core-image-minimal.bb
 LICENSE = "MIT"
 
 IMAGE_INSTALL += " \
+   pru-farbsort \
    sqlite3 \
-   ti-sgx-ddk-um \
    omapdrm-pvr \
    packagegroup-qt5-toolchain-target \   
    qtmultimedia-dev \   
    qtmultimedia-mkspecs \
-   ti-cgt-pru \
+   ti-cgt-pru-native \
    ti-sgx-ddk-km \
     dropbear \
     i2c-tools \
@@ -36,7 +36,6 @@ IMAGE_INSTALL += " \
     qtsystems-tools \
     qtsystems-qmlplugins \
     qtscript \
-    qtquick1 \
     qt3d \
     qt3d-qmlplugins \
     qt3d-tools \
