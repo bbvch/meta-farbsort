@@ -11,14 +11,15 @@ SRC_URI[sha256sum] = "38b4e2fb7c970647bb612d3e0f69bf4f8808b883d32e15e05008c28836
 
 require recipes-ti/includes/ti-paths.inc
 
+COMPATIBLE_MACHINE = "ti33x|ti43x"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 PACKAGES_prepend = " \
-    ${PN}-halt \
-    ${PN}-rpmsg-echo \
+    ${PN}-fw \
 "
 
 RDEPENDS_${PN}_append = " \
-    ${PN}-halt \
-    ${PN}-rpmsg-echo \
+    ${PN}-fw \
 "
 
 DEPENDS = "ti-cgt-pru-native pru-icss"
@@ -42,5 +43,14 @@ do_compile () {
 
 
 do_install () {
-
+	install -d ${D}/lib/firmware
+	install -m 0644 ${S}/bin/* ${D}/lib/firmware
 }
+
+FILES_${PN}-fw = "/lib/firmware/am335x-pru0-fw"
+ALLOW_EMPTY_${PN} = "1"
+
+
+# This installs PRU firmware, so skip "arch" QA check
+INSANE_SKIP_${PN}-fw = "arch"
+
