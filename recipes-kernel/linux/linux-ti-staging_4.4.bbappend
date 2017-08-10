@@ -12,7 +12,12 @@ KERNEL_GIT_URI = "git://github.com/ppoile/linux-farbsort.git"
 
 SRC_URI += " \
 	file://farbsort_defconfig \
+	file://BB-BONE-PRU-00A0.dts;subdir=git/arch/arm/boot/dts \
 "
+
+
+KERNEL_DEVICETREE_beaglebone = "BB-BONE-PRU-00A0.dtb"
+
 
 kernel_do_compile_prepend() {
 	# remove .config from source tree
