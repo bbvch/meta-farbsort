@@ -1,0 +1,22 @@
+From 980c043f4f7a59f155b0e6cc45046b626caf7ee5 Mon Sep 17 00:00:00 2001
+From: Juergen Messerer <juergen.messerer@sunrise.ch>
+Date: Sat, 12 Aug 2017 00:19:49 +0200
+Subject: [PATCH] Include BBB_AMP_SHOWCASE.dtsi in am335x-boneblack.dts
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 5820d4f..f1adf04 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -183,3 +183,5 @@
+ 		};
+ 	};
+ };
++
++#include "BBB_AMP_SHOWCASE.dtsi"
+-- 
+1.9.1
+

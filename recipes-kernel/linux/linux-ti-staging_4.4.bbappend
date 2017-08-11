@@ -4,19 +4,20 @@ COMPATIBLE_MACHINE += "|beaglebone"
 
 deltask compileconfigs
 
-BRANCH = "farbsort"
+#BRANCH = "farbsort"
 
-SRCREV = "9a965386facf8f21e9d5f13ae3be0e0e368390c0"
+#SRCREV = "9a965386facf8f21e9d5f13ae3be0e0e368390c0"
 
-KERNEL_GIT_URI = "git://github.com/ppoile/linux-farbsort.git"
+#KERNEL_GIT_URI = "git://github.com/ppoile/linux-farbsort.git"
 
 SRC_URI += " \
 	file://farbsort_defconfig \
-	file://BB-BONE-PRU-00A0.dts;subdir=git/arch/arm/boot/dts \
+	file://BBB_AMP_SHOWCASE.dtsi;subdir=git/arch/arm/boot/dts \
+        file://0001-Include-BBB_AMP_SHOWCASE.dtsi.patch; \
 "
 
 
-KERNEL_DEVICETREE_beaglebone = "BB-BONE-PRU-00A0.dtb"
+KERNEL_DEVICETREE_beaglebone = "am335x-boneblack.dtb"
 
 
 kernel_do_compile_prepend() {
@@ -28,4 +29,3 @@ kernel_do_compile_prepend() {
 	# configure
 	oe_runmake farbsort_defconfig
 }
-
