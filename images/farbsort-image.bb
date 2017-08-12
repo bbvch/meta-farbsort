@@ -5,6 +5,12 @@ LICENSE = "MIT"
 IMAGE_INSTALL += " \
    pru-farbsort \
    omapdrm-pvr \
+   dropbear \
+   i2c-tools \
+   kernel-modules \
+   fontconfig freetype pulseaudio dbus taglib zlib \
+   alsa-lib alsa-tools \
+   qtbase \
 "
 
 #  sqlite3 \
