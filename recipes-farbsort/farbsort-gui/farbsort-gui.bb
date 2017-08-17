@@ -19,7 +19,7 @@ FILES_${PN} += "${bindir}/farbsort-gui"
 DEPENDS += "\
   qtbase \
   qtbase-fonts \
-  qtbase-plugins
+  qtbase-plugins \
   qtdeclarative \
   qtmultimedia \
   qtlocation \
