@@ -4,6 +4,7 @@ LICENSE = "MIT"
 
 IMAGE_INSTALL += " \
    pru-farbsort \
+   farbsort-websocket \
    omapdrm-pvr \
    dropbear \
    i2c-tools \
