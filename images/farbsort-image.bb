@@ -5,24 +5,20 @@ LICENSE = "MIT"
 IMAGE_INSTALL += " \
    pru-farbsort \
    farbsort-websocket \
+   farbsort-gui \
+   ti-sgx-ddk-km \
    omapdrm-pvr \
    dropbear \
    i2c-tools \
    kernel-modules \
    fontconfig freetype pulseaudio dbus taglib zlib \
    alsa-lib alsa-tools \
-   qtbase \
 "
 
 #  sqlite3 \
 #   packagegroup-qt5-toolchain-target \   
 #   qtmultimedia-dev \   
 #   qtmultimedia-mkspecs \
-#   ti-cgt-pru-native \
-#   ti-sgx-ddk-km \
-#    dropbear \
-#    i2c-tools \
-#    kernel-modules \
 #    qtbase-fonts \
 #    qtbase-plugins \
 #    qtdeclarative \
@@ -54,6 +50,3 @@ IMAGE_INSTALL += " \
 #    cinematicexperience \
 #    qt5-opengles2-test \
 #    fontconfig freetype pulseaudio dbus taglib zlib \
-#    alsa-lib alsa-tools \
-#    gcc g++ libgcc libgcc-dev libstdc++ libstdc++-dev libstdc++-staticdev \
-#    "
