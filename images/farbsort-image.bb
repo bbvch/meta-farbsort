@@ -17,36 +17,5 @@ IMAGE_INSTALL += " \
 
 #  sqlite3 \
 #   packagegroup-qt5-toolchain-target \   
-#   qtmultimedia-dev \   
-#   qtmultimedia-mkspecs \
-#    qtbase-fonts \
-#    qtbase-plugins \
-#    qtdeclarative \
-#    qtdeclarative-plugins \
-#    qtdeclarative-tools \
-#    qtdeclarative-qmlplugins \
-#    qtmultimedia \
-#    qtmultimedia-plugins \
-#    qtmultimedia-qmlplugins \
-#    qtlocation \
-#    qtlocation-plugins \
-#    qtlocation-qmlplugins \
-#    qtsvg \
-#    qtsvg-plugins \
-#    qtsensors \
-#    qtsensors-plugins \
-#    qtsensors-qmlplugins \
-#    qtimageformats-plugins \
-#    qtsystems \
-#    qtsystems-tools \
-#    qtsystems-qmlplugins \
-#    qtscript \
-#    qt3d \
-#    qt3d-qmlplugins \
-#    qt3d-tools \
-#    qtconnectivity \
-#    qtconnectivity-qmlplugins \
-#    qtserialport \
 #    cinematicexperience \
 #    qt5-opengles2-test \
-#    fontconfig freetype pulseaudio dbus taglib zlib \

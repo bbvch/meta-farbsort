@@ -1,0 +1,25 @@
+From 3644943303f94135f6afb1cfc4f701ec28d299b1 Mon Sep 17 00:00:00 2001
+From: Juergen Messerer <juergen.messerer@sunrise.ch>
+Date: Fri, 18 Aug 2017 22:25:22 +0200
+Subject: [PATCH] Set qpa to eglfs
+
+---
+ recipes-qt/qt5/qtbase_git.bb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/recipes-qt/qt5/qtbase_git.bb b/recipes-qt/qt5/qtbase_git.bb
+index 963cd49..4ab11c1 100644
+--- a/recipes-qt/qt5/qtbase_git.bb
++++ b/recipes-qt/qt5/qtbase_git.bb
+@@ -83,7 +83,7 @@ PACKAGECONFIG[zlib] = "-system-zlib,-qt-zlib,zlib"
+ PACKAGECONFIG[pcre] = "-system-pcre,-qt-pcre,pcre"
+ PACKAGECONFIG[eglfs] = "-eglfs,-no-eglfs,drm"
+ PACKAGECONFIG[gl] = "-opengl desktop,,virtual/libgl"
+-PACKAGECONFIG[gles2] = "-opengl es2,,virtual/libgles2 virtual/egl"
++PACKAGECONFIG[gles2] = "-opengl es2 -qpa eglfs,,virtual/libgles2 virtual/egl"
+ PACKAGECONFIG[tslib] = "-tslib,-no-tslib,tslib"
+ PACKAGECONFIG[cups] = "-cups,-no-cups,cups"
+ PACKAGECONFIG[dbus] = "-dbus,-no-dbus,dbus"
+-- 
+1.9.1
+
