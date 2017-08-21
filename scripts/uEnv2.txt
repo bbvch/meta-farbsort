@@ -1,0 +1,2 @@
+fdtfile=am335x-boneblack.dtb
+
