@@ -1,10 +1,5 @@
 #! /bin/bash
 
-
-pause(){
- read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
-}
-
 if [ $# -ne 4 ]; then
 	echo "Usage: $0 <Image File> <YoctoBuildBaseDir> <rootfs-file-name.tar.gz> <disksize in bytes>"
 	exit 1;
@@ -46,7 +41,6 @@ sfdisk -D -H 255 -S 63 -C $CYLINDERS ${OUTFILENAME} << EOF
 196,,,-
 EOF
 
-pause
 
 kpartx -l $DRIVE > kpartx.tmp
 cat kpartx.tmp
@@ -65,8 +59,6 @@ LOOPDRIVE=/dev/mapper/${LOOPNAME}
 
 echo "LOOPNAME - ${LOOPNAME} - LOOPDRIVE - ${LOOPDRIVE}"
 
-pause
-
 mkfs.vfat -F 32 -n "boot" ${LOOPDRIVE}p1
 mkfs.ext3 -L "rootfs" ${LOOPDRIVE}p2
 mkfs.ext3 -L "START_HERE" ${LOOPDRIVE}p3
@@ -78,7 +70,7 @@ mount ${LOOPDRIVE}p3 ${BASEDIR}/mnt/START_HERE
 cp ${IMAGEDIR}/MLO ${BASEDIR}/mnt/boot/MLO
 cp ${IMAGEDIR}/u-boot.img ${BASEDIR}/mnt/boot/u-boot.img
 cp ${IMAGEDIR}/zImage ${BASEDIR}/mnt/boot/zImage
-cp ${IMAGEDIR}/uEnv.txt ${BASEDIR}/mnt/boot/uEnv.txt
+cp ${BASEDIR}/uEnv.txt ${BASEDIR}/mnt/boot/uEnv.txt
 
 tar xvf ${IMAGEDIR}/${IMAGENAME} -C ${BASEDIR}/mnt/rootfs/
 

@@ -13,9 +13,11 @@ IMAGE_INSTALL += " \
    kernel-modules \
    fontconfig freetype pulseaudio dbus taglib zlib \
    alsa-lib alsa-tools \
+   mksd.bb \
 "
 
-#  sqlite3 \
-#   packagegroup-qt5-toolchain-target \   
-#    cinematicexperience \
-#    qt5-opengles2-test \
+
+#   packagegroup-qt5-toolchain-target
+#   cinematicexperience
+#   qt5-opengles2-test 
+
