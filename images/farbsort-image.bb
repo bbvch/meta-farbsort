@@ -13,8 +13,13 @@ IMAGE_INSTALL += " \
    kernel-modules \
    fontconfig freetype pulseaudio dbus taglib zlib \
    alsa-lib alsa-tools \
-   mksd.bb \
+   mksd \
 "
+
+do_deploy_append() {
+   sudo ${TOPDIR}/mkBeagleImage.sh ${TOPDIR}/bbb.img ${TOPDIR}  farbsort-image-beaglebone.tar.gz 4294967296
+
+}
 
 
 #   packagegroup-qt5-toolchain-target
