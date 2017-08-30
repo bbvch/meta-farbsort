@@ -10,4 +10,19 @@ SRC_URI[sha256sum] = "9a6a050ffe692499c903b8a43baf91c7032e66957e16a819c9d0515dfd
 
 #S = "${WORKDIR}/bbexample-${PV}"
 
-#do_unpack() {}
+#RDEPENDS = "openmotif"
+
+do_compile() {
+  cd ${S}/bin-mt-usb/elo_mt_input_mod_src/
+  make
+  cd -
+}
+
+do_install() {
+  install -d ${D}/etc/opt/elo-mt-usb
+  install -d ${D}/etc/udev/rules.d
+  install -m 644 ${S}/bin-mt-usb/99-elotouch.rules ${D}/etc/udev/rules.d
+  cp -r ${S}/bin-mt-usb/* ${D}/etc/opt/elo-mt-usb/
+  chmod 744 ${D}/etc/opt/elo-mt-usb/*
+  chmod 444 ${D}/etc/opt/elo-mt-usb/*.txt
+}

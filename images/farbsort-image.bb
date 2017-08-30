@@ -14,6 +14,7 @@ IMAGE_INSTALL += " \
    fontconfig freetype pulseaudio dbus taglib zlib \
    alsa-lib alsa-tools \
    mksd \
+   elo-single-touch \
 "
 
 do_deploy_append() {

@@ -17,5 +17,9 @@ do_compile() {
 
 do_install() {
   install -d ${D}/etc/opt/elo-usb
+  install -d ${D}/etc/udev/rules.d
   install -m 644 ${S}/bin-usb/99-elotouch.rules ${D}/etc/udev/rules.d
+  cp -r ${S}/bin-usb/* ${D}/etc/opt/elo-usb/
 }
+
+FILES_${PN} += "${S}/bin-usb/*"

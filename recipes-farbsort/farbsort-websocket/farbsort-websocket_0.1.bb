@@ -8,20 +8,26 @@ SRC_URI = " git://github.com/bbvch/farbsort-websocket.git;protocol=http"
 
 SRC_URI[md5sum] = "0688ddb5c56f6467631ed9d0f59028b9"
 
+COMPATIBLE_MACHINE = "ti33x|ti43x"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 DEPENDS_${PN}  += "python-tornado"
 RDEPENDS_${PN} += "python-tornado bash"
 
 S = "${WORKDIR}/git"
 
+#Disable auto config
 do_configure () {
 }
 
+#Disable auto build
 do_compile () {
 }
 
 do_install () {
 
 	install -d ${D}/root/farbsort-websocket
+        install -D ${S}/farbsort.html ${D}/root/farbsort-websocket
 	cp -r ${S}/farbsort/* ${D}/root/farbsort-websocket/
 
         install -d ${D}/etc/systemd/system/
