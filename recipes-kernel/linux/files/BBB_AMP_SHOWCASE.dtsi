@@ -37,3 +37,7 @@
 		opp-supported-hw = <0x06 0x0100>;
 	};
 };
+
+&sgx {
+    status = "okay";
+};

@@ -1,7 +1,7 @@
 SUMMARY = "Copy mksd.sh script to image deployment area"
 SECTION = "devel"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/uEnv.txt;md5=a8aeec068a182697e8843a1acfe7540f"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/uEnv.txt;md5=49fe9862cdd72359e2f2acedc50c9e5d"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI = "file://uEnv.txt"

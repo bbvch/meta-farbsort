@@ -32,19 +32,44 @@ rm ${DRIVE}*
 
 cd ${BASEDIR}
 
+
+
 dd if=/dev/zero of=$DRIVE bs=1024 count=0 seek=$[${SIZE}/1024]
 
 #SIZE=`fdisk -l $DRIVE | grep Disk | awk '{print $5}'`
 
+########################
+#Generate partitions for theimg
+########################
 CYLINDERS=`echo $SIZE/255/63/512 | bc`
-
 echo DISK SIZE - $SIZE bytes - CYLINDERS - ${CYLINDERS}
 
-sfdisk -D -H 255 -S 63 -C $CYLINDERS ${OUTFILENAME} << EOF
+verlte() {
+    [  "$1" = "`echo -e "$1\n$2" | sort -V | head -n1`" ]
+}
+
+verlt() {
+    [ "$1" = "$2" ] && return 1 || verlte $1 $2
+}
+
+#Get sfdisk version because the options have changed
+SFDISK_VERSION=`sfdisk --version | cut -d ' ' -f4`
+
+verlte $SFDISK_VERSION 2.26 && OLD_VERSION="true" || OLD_VERSION="false"
+
+if [ "$OLD_VERSION" == "true" ]; then
+sfdisk -H 255 -S 63 -C $CYLINDERS ${OUTFILENAME} << EOF
 ,9,0x0C,*
 10,185,,-
 196,,,-
 EOF
+else
+sfdisk ${OUTFILENAME} << EOF
+,1M,c,*
+,1G
+;
+EOF
+fi
 
 pause
 
@@ -74,6 +99,7 @@ mkfs.ext3 -L "START_HERE" ${LOOPDRIVE}p3
 mount ${LOOPDRIVE}p1 ${BASEDIR}/mnt/boot
 mount ${LOOPDRIVE}p2 ${BASEDIR}/mnt/rootfs
 mount ${LOOPDRIVE}p3 ${BASEDIR}/mnt/START_HERE
+
 
 cp ${IMAGEDIR}/MLO ${BASEDIR}/mnt/boot/MLO
 cp ${IMAGEDIR}/u-boot.img ${BASEDIR}/mnt/boot/u-boot.img

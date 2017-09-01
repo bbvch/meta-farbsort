@@ -7,6 +7,7 @@ IMAGE_INSTALL += " \
    farbsort-websocket \
    farbsort-gui \
    ti-sgx-ddk-km \
+   ti-sgx-ddk-um-dev \
    omapdrm-pvr \
    dropbear \
    i2c-tools \
@@ -15,7 +16,14 @@ IMAGE_INSTALL += " \
    alsa-lib alsa-tools \
    mksd \
    elo-single-touch \
+   qt5-opengles2-test \
+   opkg \
+   opkg-utils \
+   strace \
+   binutils \
 "
+
+IMAGE_FEATURES += "package-management"
 
 do_deploy_append() {
    sudo ${TOPDIR}/mkBeagleImage.sh ${TOPDIR}/bbb.img ${TOPDIR}  farbsort-image-beaglebone.tar.gz 4294967296
