@@ -1,3 +1,5 @@
+COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k2g|beaglebone"
+
 FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://0002-pru_virtio_ring-make-it-compile.patch"

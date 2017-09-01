@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "38b4e2fb7c970647bb612d3e0f69bf4f8808b883d32e15e05008c28836
 
 require recipes-ti/includes/ti-paths.inc
 
-COMPATIBLE_MACHINE = "ti33x|ti43x"
+COMPATIBLE_MACHINE = "ti33x|ti43x|beaglebone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PACKAGES_prepend = " \

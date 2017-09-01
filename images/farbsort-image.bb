@@ -7,8 +7,8 @@ IMAGE_INSTALL += " \
    farbsort-websocket \
    farbsort-gui \
    ti-sgx-ddk-km \
+   ti-sgx-ddk-um \
    ti-sgx-ddk-um-dev \
-   omapdrm-pvr \
    dropbear \
    i2c-tools \
    kernel-modules \

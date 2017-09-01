@@ -8,7 +8,7 @@ SRC_URI = " git://github.com/bbvch/farbsort-websocket.git;protocol=http"
 
 SRC_URI[md5sum] = "0688ddb5c56f6467631ed9d0f59028b9"
 
-COMPATIBLE_MACHINE = "ti33x|ti43x"
+COMPATIBLE_MACHINE = "ti33x|ti43x|beaglebone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS_${PN}  += "python-tornado"
