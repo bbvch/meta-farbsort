@@ -6,9 +6,6 @@ IMAGE_INSTALL += " \
    pru-farbsort \
    farbsort-websocket \
    farbsort-gui \
-   ti-sgx-ddk-km \
-   ti-sgx-ddk-um \
-   ti-sgx-ddk-um-dev \
    dropbear \
    i2c-tools \
    kernel-modules \
@@ -22,6 +19,10 @@ IMAGE_INSTALL += " \
    strace \
    binutils \
 "
+
+IMAGE_INSTALL += "\
+    packagegroup-mb-qt5 \
+    "
 
 IMAGE_FEATURES += "package-management"
 

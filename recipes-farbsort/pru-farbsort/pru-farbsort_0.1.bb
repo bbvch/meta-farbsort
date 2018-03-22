@@ -27,8 +27,8 @@ DEPENDS = "ti-cgt-pru-native pru-icss"
 S = "${WORKDIR}/git"
 
 export PRU_CGT           = "${TI_CGT_PRU_INSTALL_DIR}"
-export PRU_ICSS_INC_PATH = "${STAGING_INCDIR_NATIVE}/pru-icss"
-export PRU_ICSS_LIB_PATH = "${STAGING_LIBDIR_NATIVE}/pru-icss"
+export PRU_ICSS_INC_PATH = "${STAGING_INCDIR}/pru-icss"
+export PRU_ICSS_LIB_PATH = "${STAGING_LIBDIR}/pru-icss"
 
 do_patch() {
 }
@@ -43,8 +43,8 @@ do_compile () {
 
 
 do_install () {
-	install -d ${D}/lib/firmware
-	install -m 0644 ${S}/bin/* ${D}/lib/firmware
+    install -d ${D}/lib/firmware
+    install -m 0644 ${S}/bin/* ${D}/lib/firmware
 }
 
 FILES_${PN}-fw = "/lib/firmware/am335x-pru0-fw"
